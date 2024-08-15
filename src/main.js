@@ -1,6 +1,6 @@
 import './assets/main.css'
 
 import { createApp } from 'vue'
-import App from './AppWeek01-HW.vue'
+import App from './OrderList-Week01HW.vue'
 
 createApp(App).mount('#app')
