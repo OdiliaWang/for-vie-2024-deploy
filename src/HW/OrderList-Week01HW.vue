@@ -92,7 +92,7 @@ const confirmEdit = () => {
     <table>
       <thead>
         <tr>
-          <th scope="col" class="name" >品項</th>
+          <th scope="col" class="name">品項</th>
           <th scope="col" class="description">描述</th>
           <th scope="col" class="price" >價格</th>
           <th scope="col" class="stock" >庫存</th>
