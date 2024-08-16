@@ -106,7 +106,7 @@ const confirmEdit = () => {
               <div>
                 <span v-if="tempEdit.id === drink.id">
                   <input type="text" v-model="tempEdit.name" />
-                  <button type="button" class="btn-primary" @click="confirmEdit">確認</button>
+                  <button type="button" variant="danger" @click="confirmEdit">確認</button>
                   <button type="button" v-if="tempEdit.id" @click="tempEdit = {}">取消</button>
                 </span>
                 <span v-else>{{ drink.name }}</span>
