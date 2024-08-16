@@ -86,44 +86,46 @@ const confirmEdit = () => {
 </script>
 
 <template>
-  <h1>餐點管理工具</h1>
-  <br>
-  <div>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col" class="name">品項</th>
-          <th scope="col" class="description">描述</th>
-          <th scope="col" class="price" >價格</th>
-          <th scope="col" class="stock" >庫存</th>
-        </tr> 
-      </thead>
+  <div class="container">
+    <h3 class="mt-5">餐點管理工具</h3>
+    <hr>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" class="name">品項</th>
+            <th scope="col" class="description">描述</th>
+            <th scope="col" class="price" >價格</th>
+            <th scope="col" class="stock" >庫存</th>
+          </tr> 
+        </thead>
 
-      <tbody>
-        <tr v-for="drink in drinkList" :key="drink.id">
-          <td>
-            <div>
-              <span v-if="tempEdit.id === drink.id">
-                <input type="text" v-model="tempEdit.name" />
-                <button type="button" @click="confirmEdit">確認</button>
-                <button type="button" v-if="tempEdit.id" @click="tempEdit = {}">取消</button>
-              </span>
-              <span v-else>{{ drink.name }}</span>
-              <button type="button" v-if="!tempEdit.id" @click="nameEdit(drink)">
-                編輯
-              </button>
-            </div>
-          </td>
-          <td> {{ drink.description }} </td>
-          <td> {{ drink.price }} </td>
-          <td>
-            <button type="button" @click="handleMinus(drink)"> - </button>
-            {{ drink.stock }}
-            <button type="button" @click="handlePlus(drink)"> + </button>
-          </td>
-        </tr>
-      </tbody>
-      
-    </table>
+        <tbody>
+          <tr v-for="drink in drinkList" :key="drink.id">
+            <td>
+              <div>
+                <span v-if="tempEdit.id === drink.id">
+                  <input type="text" v-model="tempEdit.name" />
+                  <button type="button" class="btn-primary" @click="confirmEdit">確認</button>
+                  <button type="button" v-if="tempEdit.id" @click="tempEdit = {}">取消</button>
+                </span>
+                <span v-else>{{ drink.name }}</span>
+                <button type="button" v-if="!tempEdit.id" @click="nameEdit(drink)">
+                  編輯
+                </button>
+              </div>
+            </td>
+            <td> {{ drink.description }} </td>
+            <td> {{ drink.price }} </td>
+            <td>
+              <button type="button" @click="handleMinus(drink)"> - </button>
+              {{ drink.stock }}
+              <button type="button" @click="handlePlus(drink)"> + </button>
+            </td>
+          </tr>
+        </tbody>
+        
+      </table>
+    </div>
   </div>
-</template>
+  </template>
