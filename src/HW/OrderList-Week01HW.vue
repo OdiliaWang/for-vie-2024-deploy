@@ -90,7 +90,7 @@ const confirmEdit = () => {
     <h3 class="mt-5">餐點管理工具</h3>
     <hr>
     <div>
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th scope="col" class="name">品項</th>
@@ -104,13 +104,13 @@ const confirmEdit = () => {
           <tr v-for="drink in drinkList" :key="drink.id">
             <td>
               <div>
-                <span v-if="tempEdit.id === drink.id">
-                  <input type="text" v-model="tempEdit.name" />
-                  <button type="button" @click="confirmEdit">確認</button>
-                  <button type="button" v-if="tempEdit.id" @click="tempEdit = {}">取消</button>
-                </span>
+                <div v-if="tempEdit.id === drink.id">
+                  <input type="text" class="me-2" v-model="tempEdit.name" />
+                  <button type="button" class="btn btn-success me-2" @click="confirmEdit">確認</button>
+                  <button type="button" class="btn btn-secondary" v-if="tempEdit.id" @click="tempEdit = {}">取消</button>
+                </div>
                 <span v-else>{{ drink.name }}</span>
-                <button type="button" v-if="!tempEdit.id" @click="nameEdit(drink)">
+                <button type="button" class="btn btn-primary ms-3" v-if="!tempEdit.id" @click="nameEdit(drink)">
                   編輯
                 </button>
               </div>
@@ -118,9 +118,9 @@ const confirmEdit = () => {
             <td> {{ drink.description }} </td>
             <td> {{ drink.price }} </td>
             <td>
-              <button type="button" @click="handleMinus(drink)"> - </button>
+              <button type="button" class="btn btn-danger" @click="handleMinus(drink)"> - </button>
               {{ drink.stock }}
-              <button type="button" @click="handlePlus(drink)"> + </button>
+              <button type="button" class="btn btn-danger" @click="handlePlus(drink)"> + </button>
             </td>
           </tr>
         </tbody>
